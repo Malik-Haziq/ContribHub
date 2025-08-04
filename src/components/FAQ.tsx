@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const faqs = [
   {
@@ -28,29 +29,48 @@ export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-24">
+    <section id="faq" className="py-32 relative">
+      <div className="absolute top-20 left-10 w-28 h-28 bg-accent/15 rounded-full blur-2xl float" />
+      <div className="absolute bottom-20 right-10 w-36 h-36 bg-primary/10 rounded-full blur-3xl float-delayed" />
+      
       <div className="container mx-auto px-6">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Frequently Asked Questions
+        <div className="max-w-4xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="heading-lg mb-6">
+              Frequently Asked <span className="text-gradient">Questions</span>
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-muted-foreground font-light">
               Everything you need to know about getting started
             </p>
-          </div>
+          </motion.div>
           
-          <div className="space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-4"
+          >
             {faqs.map((faq, index) => (
-              <div 
+              <motion.div 
                 key={index}
-                className="bg-white rounded-2xl shadow-soft overflow-hidden hover:shadow-medium transition-smooth"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="card-gradient rounded-2xl shadow-soft overflow-hidden hover:shadow-medium transition-all duration-300 border border-border/50"
               >
                 <button
-                  className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-secondary/50 transition-smooth"
+                  className="w-full px-8 py-8 text-left flex items-center justify-between hover:bg-muted/30 transition-all duration-300"
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 >
-                  <span className="font-semibold text-lg pr-4">
+                  <span className="font-bold text-lg pr-4">
                     {faq.question}
                   </span>
                   <ChevronDown 
@@ -61,15 +81,21 @@ export const FAQ = () => {
                 </button>
                 
                 {openIndex === index && (
-                  <div className="px-6 pb-6">
-                    <p className="text-muted-foreground leading-relaxed">
+                  <motion.div 
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="px-8 pb-8"
+                  >
+                    <p className="text-muted-foreground leading-relaxed text-lg">
                       {faq.answer}
                     </p>
-                  </div>
+                  </motion.div>
                 )}
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

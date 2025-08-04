@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Heart, TrendingUp, Code2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const benefits = [
   {
@@ -24,66 +25,105 @@ const benefits = [
 
 export const WhyItMatters = () => {
   return (
-    <section className="py-24 bg-gradient-to-br from-primary/5 via-accent/10 to-primary-glow/5">
+    <section id="why-it-matters" className="py-32 relative overflow-hidden">
+      {/* Enhanced background elements */}
+      <div className="absolute top-20 left-20 w-40 h-40 bg-primary/15 rounded-full blur-3xl float" />
+      <div className="absolute bottom-20 right-20 w-32 h-32 bg-accent/20 rounded-full blur-2xl float-delayed" />
+      <div className="absolute top-60 right-40 w-20 h-20 bg-primary-glow/25 rounded-full blur-xl float-slow" />
+      
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Your Open Source Journey{" "}
-            <span className="text-gradient">Starts Here</span>
-          </h2>
-          
-          <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
-            Open source isn't just about code—it's about growth, community, and making an impact. 
-            We believe every developer deserves to experience the joy of contributing to something bigger than themselves.
-          </p>
+        <div className="max-w-6xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-20"
+          >
+            <h2 className="heading-lg mb-8">
+              Your Open Source Journey{" "}
+              <span className="text-gradient">Starts Here</span>
+            </h2>
+            
+            <p className="text-xl text-muted-foreground mb-16 leading-relaxed font-light max-w-4xl mx-auto">
+              Open source isn't just about code—it's about growth, community, and making an impact. 
+              We believe every developer deserves to experience the joy of contributing to something bigger than themselves.
+            </p>
+          </motion.div>
           
           {/* Stats */}
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="grid md:grid-cols-3 gap-8 mb-20">
             {benefits.map((benefit, index) => (
-              <div key={index} className="text-center group">
-                <div className="w-16 h-16 rounded-2xl bg-white shadow-soft flex items-center justify-center mx-auto mb-4 group-hover:shadow-medium transition-smooth">
-                  <benefit.icon className="w-8 h-8 text-primary" />
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                whileHover={{ scale: 1.05 }}
+                className="group"
+              >
+                <div className="card-gradient rounded-3xl p-8 interactive-card">
+                  <div className="w-20 h-20 rounded-3xl bg-primary/20 flex items-center justify-center mx-auto mb-6 group-hover:shadow-glow transition-all duration-300">
+                    <benefit.icon className="w-10 h-10 text-primary" />
+                  </div>
+                  <div className="text-4xl md:text-5xl font-bold text-gradient mb-3">
+                    {benefit.stat}
+                  </div>
+                  <div className="font-bold text-lg mb-3">
+                    {benefit.label}
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {benefit.description}
+                  </p>
                 </div>
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                  {benefit.stat}
-                </div>
-                <div className="font-semibold mb-2">
-                  {benefit.label}
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  {benefit.description}
-                </p>
-              </div>
+              </motion.div>
             ))}
           </div>
           
-          {/* Emotional copy */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-medium mb-12">
-            <blockquote className="text-lg md:text-xl italic text-muted-foreground mb-6">
-              "I always wanted to contribute to open source but didn't know where to start. 
-              ContribHub not only found me the perfect issues but gave me the confidence to actually contribute. 
-              Now I'm a regular contributor to three different projects!"
-            </blockquote>
-            <div className="flex items-center justify-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-primary-glow"></div>
-              <div className="text-left">
-                <div className="font-semibold">Sarah Chen</div>
-                <div className="text-sm text-muted-foreground">Frontend Developer</div>
+          {/* Testimonial */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-16"
+          >
+            <div className="card-gradient rounded-3xl p-8 md:p-12 shadow-medium border border-border/50 max-w-4xl mx-auto">
+              <blockquote className="text-xl md:text-2xl italic text-muted-foreground mb-8 leading-relaxed font-light">
+                "I always wanted to contribute to open source but didn't know where to start. 
+                ContribHub not only found me the perfect issues but gave me the confidence to actually contribute. 
+                Now I'm a regular contributor to three different projects!"
+              </blockquote>
+              <div className="flex items-center justify-center gap-4">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-accent shadow-glow"></div>
+                <div className="text-left">
+                  <div className="font-bold text-lg">Sarah Chen</div>
+                  <div className="text-muted-foreground">Frontend Developer</div>
+                </div>
               </div>
             </div>
-          </div>
+          </motion.div>
           
-          <div className="space-y-4">
-            <p className="text-lg text-muted-foreground">
+          {/* CTA */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            id="waitlist"
+            className="space-y-6"
+          >
+            <p className="text-xl text-muted-foreground font-light">
               Ready to transform your development journey?
             </p>
-            <Button variant="hero" size="lg" className="group">
+            <Button variant="hero" size="lg" className="group shadow-glow">
               Join the Waitlist - It's Free
             </Button>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-muted-foreground">
               ✨ Early access • No spam • Cancel anytime
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

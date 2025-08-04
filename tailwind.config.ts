@@ -65,7 +65,12 @@ export default {
 				}
 			},
 			fontFamily: {
-				sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+				sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+				heading: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+			},
+			fontSize: {
+				'display': ['6rem', { lineHeight: '1', letterSpacing: '-0.02em' }],
+				'heading': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.01em' }],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
