@@ -45,7 +45,7 @@ export const WhyItMatters = () => {
               <span className="text-gradient">Starts Here</span>
             </h2>
             
-            <p className="text-xl text-muted-foreground mb-16 leading-relaxed font-light max-w-4xl mx-auto">
+            <p className="text-lg text-muted-foreground mb-16 leading-relaxed font-light max-w-4xl mx-auto">
               Open source isn't just about code—it's about growth, community, and making an impact. 
               We believe every developer deserves to experience the joy of contributing to something bigger than themselves.
             </p>
@@ -63,14 +63,14 @@ export const WhyItMatters = () => {
                 whileHover={{ scale: 1.05 }}
                 className="group"
               >
-                <div className="card-gradient rounded-3xl p-8 interactive-card">
+                <div className="glass-card rounded-3xl p-8 transition-all duration-500 hover:scale-105">
                   <div className="w-20 h-20 rounded-3xl bg-primary/20 flex items-center justify-center mx-auto mb-6 group-hover:shadow-glow transition-all duration-300">
                     <benefit.icon className="w-10 h-10 text-primary" />
                   </div>
-                  <div className="text-4xl md:text-5xl font-bold text-gradient mb-3">
+                  <div className="text-3xl md:text-4xl font-bold text-gradient mb-3">
                     {benefit.stat}
                   </div>
-                  <div className="font-bold text-lg mb-3">
+                  <div className="font-semibold text-lg mb-3">
                     {benefit.label}
                   </div>
                   <p className="text-muted-foreground leading-relaxed">
@@ -89,8 +89,8 @@ export const WhyItMatters = () => {
             transition={{ duration: 0.8 }}
             className="mb-16"
           >
-            <div className="card-gradient rounded-3xl p-8 md:p-12 shadow-medium border border-border/50 max-w-4xl mx-auto">
-              <blockquote className="text-xl md:text-2xl italic text-muted-foreground mb-8 leading-relaxed font-light">
+            <div className="glass-card rounded-3xl p-8 md:p-12 max-w-4xl mx-auto">
+              <blockquote className="text-lg md:text-xl italic text-muted-foreground mb-8 leading-relaxed font-light">
                 "I always wanted to contribute to open source but didn't know where to start. 
                 ContribHub not only found me the perfect issues but gave me the confidence to actually contribute. 
                 Now I'm a regular contributor to three different projects!"
@@ -114,7 +114,7 @@ export const WhyItMatters = () => {
             id="waitlist"
             className="space-y-6"
           >
-            <p className="text-xl text-muted-foreground font-light">
+            <p className="text-lg text-muted-foreground font-light">
               Ready to transform your development journey?
             </p>
             <Button variant="hero" size="lg" className="group shadow-glow">

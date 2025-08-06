@@ -43,76 +43,84 @@ export const Features = () => {
             Everything You Need to{" "}
             <span className="text-gradient">Succeed</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-light">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-light">
             We've built the tools and support system to make open source contribution 
             accessible, enjoyable, and rewarding.
           </p>
         </motion.div>
         
-        <div className="max-w-7xl mx-auto">
-          {/* Creative layout - alternating cards */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-8">
-            {features.slice(0, 2).map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                whileHover={{ scale: 1.02 }}
-                className="card-gradient rounded-3xl p-8 interactive-card group relative overflow-hidden"
-              >
-                {/* Background decoration */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-transparent rounded-full transform translate-x-16 -translate-y-16" />
-                
-                {/* Icon */}
-                <div className="relative z-10 w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mb-6 group-hover:shadow-glow transition-all duration-300">
-                  <feature.icon className="w-8 h-8 text-primary" />
+        <div className="max-w-6xl mx-auto">
+          {/* Creative staggered layout */}
+          <div className="grid gap-8">
+            {/* First feature - full width */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="glass-card rounded-3xl p-8 md:p-12 group transition-all duration-500 hover:scale-[1.02]"
+            >
+              <div className="flex flex-col md:flex-row items-center gap-8">
+                <div className="w-20 h-20 rounded-3xl bg-primary/20 flex items-center justify-center group-hover:shadow-glow transition-all duration-300 shrink-0">
+                  <Target className="w-10 h-10 text-primary" />
                 </div>
-                
-                {/* Content */}
-                <div className="relative z-10">
-                  <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
-                    {feature.title}
+                <div className="text-center md:text-left">
+                  <h3 className="heading-md mb-4 group-hover:text-primary transition-colors">
+                    {features[0].title}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed text-lg">
-                    {feature.description}
+                    {features[0].description}
                   </p>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-8">
-            {features.slice(2, 4).map((feature, index) => (
-              <motion.div
-                key={index + 2}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: (index + 2) * 0.2 }}
-                whileHover={{ scale: 1.02 }}
-                className="card-gradient rounded-3xl p-8 interactive-card group relative overflow-hidden"
-              >
-                {/* Background decoration */}
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-accent/10 to-transparent rounded-full transform -translate-x-12 translate-y-12" />
-                
-                {/* Icon */}
-                <div className="relative z-10 w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center mb-6 group-hover:shadow-accent-glow transition-all duration-300">
-                  <feature.icon className="w-8 h-8 text-accent" />
-                </div>
-                
-                {/* Content */}
-                <div className="relative z-10">
-                  <h3 className="text-2xl font-bold mb-4 group-hover:text-accent transition-colors">
+              </div>
+            </motion.div>
+
+            {/* Second and third features - side by side */}
+            <div className="grid md:grid-cols-2 gap-8">
+              {features.slice(1, 3).map((feature, index) => (
+                <motion.div
+                  key={index + 1}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  className="glass-card rounded-3xl p-8 group transition-all duration-500 hover:scale-[1.02]"
+                >
+                  <div className="w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center mb-6 group-hover:shadow-accent-glow transition-all duration-300">
+                    <feature.icon className="w-8 h-8 text-accent" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-4 group-hover:text-accent transition-colors">
                     {feature.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed text-lg">
+                  <p className="text-muted-foreground leading-relaxed">
                     {feature.description}
                   </p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Fourth feature - offset layout */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="glass-card rounded-3xl p-8 md:p-12 group transition-all duration-500 hover:scale-[1.02] md:ml-16"
+            >
+              <div className="flex flex-col md:flex-row-reverse items-center gap-8">
+                <div className="w-20 h-20 rounded-3xl bg-primary/20 flex items-center justify-center group-hover:shadow-glow transition-all duration-300 shrink-0">
+                  <Shield className="w-10 h-10 text-primary" />
                 </div>
-              </motion.div>
-            ))}
+                <div className="text-center md:text-right">
+                  <h3 className="heading-md mb-4 group-hover:text-primary transition-colors">
+                    {features[3].title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed text-lg">
+                    {features[3].description}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>

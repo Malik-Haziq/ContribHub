@@ -45,7 +45,7 @@ export const FAQ = () => {
             <h2 className="heading-lg mb-6">
               Frequently Asked <span className="text-gradient">Questions</span>
             </h2>
-            <p className="text-xl text-muted-foreground font-light">
+            <p className="text-lg text-muted-foreground font-light">
               Everything you need to know about getting started
             </p>
           </motion.div>
@@ -64,13 +64,13 @@ export const FAQ = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="card-gradient rounded-2xl shadow-soft overflow-hidden hover:shadow-medium transition-all duration-300 border border-border/50"
+                className="glass-card rounded-2xl overflow-hidden hover:scale-[1.01] transition-all duration-300 border border-border/30"
               >
                 <button
                   className="w-full px-8 py-8 text-left flex items-center justify-between hover:bg-muted/30 transition-all duration-300"
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 >
-                  <span className="font-bold text-lg pr-4">
+                  <span className="font-semibold text-lg pr-4">
                     {faq.question}
                   </span>
                   <ChevronDown 
@@ -88,7 +88,7 @@ export const FAQ = () => {
                     transition={{ duration: 0.3 }}
                     className="px-8 pb-8"
                   >
-                    <p className="text-muted-foreground leading-relaxed text-lg">
+                    <p className="text-muted-foreground leading-relaxed">
                       {faq.answer}
                     </p>
                   </motion.div>

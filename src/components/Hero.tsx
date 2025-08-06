@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Code2 } from "lucide-react";
 import { motion } from "framer-motion";
-import heroIllustration from "@/assets/hero-illustration.png";
 
 export const Hero = () => {
   return (
@@ -49,7 +48,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto mb-12 leading-relaxed font-light"
+            className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed font-light"
           >
             Stop feeling overwhelmed by GitHub. Our AI understands your skills and matches you with 
             meaningful issues you can actually solve. Start contributing to open source with confidence.
@@ -71,20 +70,41 @@ export const Hero = () => {
             </Button>
           </motion.div>
           
-          {/* Hero image */}
+          {/* Abstract visual elements */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1 }}
             className="relative"
           >
-            <div className="relative max-w-5xl mx-auto">
-              <img 
-                src={heroIllustration} 
-                alt="Developers collaborating on open source projects"
-                className="w-full h-auto rounded-3xl shadow-medium hover:shadow-glow transition-all duration-700 border border-border/50"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent rounded-3xl" />
+            <div className="relative max-w-4xl mx-auto h-64 md:h-80">
+              {/* Abstract line patterns */}
+              <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 400 300" fill="none">
+                <defs>
+                  <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.6"/>
+                    <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.3"/>
+                  </linearGradient>
+                </defs>
+                <path d="M0,150 Q100,50 200,150 T400,150" stroke="url(#line-gradient)" strokeWidth="2" fill="none"/>
+                <path d="M0,180 Q150,80 300,180 T400,180" stroke="url(#line-gradient)" strokeWidth="1.5" fill="none" opacity="0.7"/>
+                <path d="M50,120 Q200,20 350,120 T400,120" stroke="url(#line-gradient)" strokeWidth="1" fill="none" opacity="0.5"/>
+                <circle cx="100" cy="150" r="3" fill="hsl(var(--primary))" opacity="0.8"/>
+                <circle cx="300" cy="150" r="2" fill="hsl(var(--accent))" opacity="0.6"/>
+                <circle cx="200" cy="120" r="1.5" fill="hsl(var(--primary-glow))" opacity="0.7"/>
+              </svg>
+              
+              {/* Glassmorphism card overlay */}
+              <div className="absolute inset-0 glass-card rounded-3xl p-8 md:p-12 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-primary/20 flex items-center justify-center">
+                    <Code2 className="w-8 h-8 text-primary" />
+                  </div>
+                  <p className="text-muted-foreground text-sm">
+                    Join thousands of developers finding their perfect first contribution
+                  </p>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

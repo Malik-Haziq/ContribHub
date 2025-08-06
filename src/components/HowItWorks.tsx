@@ -36,9 +36,9 @@ export const HowItWorks = () => {
           className="text-center mb-20"
         >
           <h2 className="heading-lg mb-6">
-            How It <span className="text-gradient-alt">Works</span>
+            How It <span className="text-gradient">Works</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
             From overwhelmed to contributing in three simple steps
           </p>
         </motion.div>
@@ -61,11 +61,11 @@ export const HowItWorks = () => {
                   <div className="w-12 h-12 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center text-lg font-bold shadow-glow">
                     {index + 1}
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold">
+                  <h3 className="text-xl md:text-2xl font-semibold">
                     {step.title}
                   </h3>
                 </div>
-                <p className="text-lg text-muted-foreground leading-relaxed max-w-md mx-auto lg:mx-0">
+                <p className="text-muted-foreground leading-relaxed max-w-md mx-auto lg:mx-0">
                   {step.description}
                 </p>
               </div>
@@ -76,8 +76,8 @@ export const HowItWorks = () => {
                   whileHover={{ scale: 1.05, rotate: 2 }}
                   className="relative"
                 >
-                  <div className="w-64 h-64 rounded-3xl card-gradient flex items-center justify-center shadow-medium interactive-card">
-                    <step.icon className="w-20 h-20 text-primary" />
+                  <div className="w-64 h-64 rounded-3xl glass-card flex items-center justify-center transition-all duration-500 hover:scale-105">
+                    <step.icon className="w-16 h-16 text-primary" />
                     
                     {/* Decorative elements */}
                     <div className="absolute -top-4 -right-4 w-8 h-8 bg-accent rounded-full opacity-60" />
