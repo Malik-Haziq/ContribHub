@@ -6,38 +6,37 @@ export const Hero = () => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Creative SVG Background */}
-      <div className="absolute inset-0 svg-pattern">
-        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" fill="none">
-          {/* Abstract geometric patterns */}
+      <div className="absolute inset-0 opacity-10">
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" fill="none" preserveAspectRatio="xMidYMid slice">
           <defs>
-            <pattern id="dots" patternUnits="userSpaceOnUse" width="50" height="50">
-              <circle cx="25" cy="25" r="1" fill="hsl(var(--primary))" opacity="0.1"/>
+            <pattern id="topographic" patternUnits="userSpaceOnUse" width="120" height="120">
+              <path d="M0,60 Q30,30 60,60 T120,60" stroke="hsl(var(--primary))" strokeWidth="0.5" fill="none" opacity="0.4"/>
+              <path d="M0,80 Q30,50 60,80 T120,80" stroke="hsl(var(--primary))" strokeWidth="0.3" fill="none" opacity="0.3"/>
+              <path d="M0,100 Q30,70 60,100 T120,100" stroke="hsl(var(--accent))" strokeWidth="0.3" fill="none" opacity="0.2"/>
             </pattern>
-            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.2"/>
-              <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.1"/>
-            </linearGradient>
+            <pattern id="dots" patternUnits="userSpaceOnUse" width="60" height="60">
+              <circle cx="30" cy="30" r="1" fill="hsl(var(--primary))" opacity="0.3"/>
+              <circle cx="10" cy="10" r="0.5" fill="hsl(var(--accent))" opacity="0.2"/>
+              <circle cx="50" cy="50" r="0.5" fill="hsl(var(--primary))" opacity="0.2"/>
+            </pattern>
           </defs>
           
-          {/* Grid pattern */}
-          <rect width="100%" height="100%" fill="url(#dots)" />
+          <rect width="100%" height="100%" fill="url(#topographic)"/>
+          <rect width="100%" height="100%" fill="url(#dots)"/>
           
-          {/* Floating geometric shapes */}
-          <circle cx="100" cy="150" r="80" stroke="url(#lineGradient)" strokeWidth="1" fill="none" opacity="0.3"/>
-          <circle cx="1000" cy="200" r="120" stroke="hsl(var(--accent))" strokeWidth="0.5" fill="none" opacity="0.2"/>
-          <path d="M200,300 Q400,200 600,300 T1000,300" stroke="hsl(var(--primary))" strokeWidth="1" fill="none" opacity="0.15"/>
-          <path d="M0,500 Q300,400 600,500 T1200,500" stroke="hsl(var(--accent))" strokeWidth="0.5" fill="none" opacity="0.1"/>
+          {/* Flowing organic shapes */}
+          <path d="M0,200 Q200,100 400,200 T800,200 Q1000,150 1200,200 L1200,0 L0,0 Z" 
+                fill="hsl(var(--primary))" opacity="0.02"/>
+          <path d="M0,350 Q300,250 600,350 T1200,350 L1200,800 L0,800 Z" 
+                fill="hsl(var(--accent))" opacity="0.015"/>
           
-          {/* Abstract nodes */}
-          <g opacity="0.2">
-            <circle cx="300" cy="100" r="2" fill="hsl(var(--primary))"/>
-            <circle cx="800" cy="150" r="1.5" fill="hsl(var(--accent))"/>
-            <circle cx="500" cy="600" r="2.5" fill="hsl(var(--primary-glow))"/>
-            <circle cx="900" cy="650" r="1" fill="hsl(var(--accent))"/>
-            
-            {/* Connecting lines */}
-            <line x1="300" y1="100" x2="800" y2="150" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.3"/>
-            <line x1="500" y1="600" x2="900" y2="650" stroke="hsl(var(--accent))" strokeWidth="0.5" opacity="0.2"/>
+          {/* Abstract connection nodes */}
+          <g opacity="0.3">
+            <circle cx="200" cy="150" r="2" fill="hsl(var(--primary))"/>
+            <circle cx="600" cy="300" r="1.5" fill="hsl(var(--accent))"/>
+            <circle cx="1000" cy="200" r="2" fill="hsl(var(--primary))"/>
+            <path d="M200,150 Q400,100 600,300" stroke="hsl(var(--primary))" strokeWidth="0.5" fill="none" opacity="0.4"/>
+            <path d="M600,300 Q800,250 1000,200" stroke="hsl(var(--accent))" strokeWidth="0.5" fill="none" opacity="0.3"/>
           </g>
         </svg>
       </div>
@@ -125,12 +124,9 @@ export const Hero = () => {
               {/* Glassmorphism card overlay */}
               <div className="absolute inset-0 glass-card rounded-3xl p-8 md:p-12 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-primary/20 flex items-center justify-center">
+                  <div className="w-16 h-16 mx-auto rounded-2xl bg-primary/20 flex items-center justify-center">
                     <Code2 className="w-8 h-8 text-primary" />
                   </div>
-                  <p className="text-muted-foreground text-sm">
-                    Join thousands of developers finding their perfect first contribution
-                  </p>
                 </div>
               </div>
             </div>

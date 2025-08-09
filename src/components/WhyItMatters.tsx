@@ -26,28 +26,41 @@ const benefits = [
 export const WhyItMatters = () => {
   return (
     <section id="why-it-matters" className="py-32 relative overflow-hidden">
-      {/* Growth-themed SVG Background */}
-      <div className="absolute inset-0 svg-pattern">
-        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" fill="none">
-          {/* Growth and progress theme */}
+      {/* Creative SVG Background */}
+      <div className="absolute inset-0 opacity-8">
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 600" fill="none">
           <defs>
-            <pattern id="growth-dots" patternUnits="userSpaceOnUse" width="60" height="60">
-              <circle cx="30" cy="30" r="1" fill="hsl(var(--primary))" opacity="0.08"/>
+            <pattern id="molecule" patternUnits="userSpaceOnUse" width="90" height="90">
+              <g opacity="0.3">
+                <circle cx="45" cy="45" r="2" fill="hsl(var(--primary))"/>
+                <circle cx="20" cy="25" r="1.5" fill="hsl(var(--accent))"/>
+                <circle cx="70" cy="25" r="1.5" fill="hsl(var(--accent))"/>
+                <circle cx="20" cy="65" r="1.5" fill="hsl(var(--primary))"/>
+                <circle cx="70" cy="65" r="1.5" fill="hsl(var(--primary))"/>
+                <path d="M45,45 L20,25 M45,45 L70,25 M45,45 L20,65 M45,45 L70,65" 
+                      stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.4"/>
+              </g>
+            </pattern>
+            <pattern id="flow" patternUnits="userSpaceOnUse" width="120" height="60">
+              <path d="M0,30 Q30,10 60,30 T120,30" stroke="hsl(var(--accent))" strokeWidth="0.8" fill="none" opacity="0.2"/>
+              <path d="M0,40 Q40,20 80,40 T120,40" stroke="hsl(var(--primary))" strokeWidth="0.6" fill="none" opacity="0.15"/>
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#growth-dots)" />
           
-          {/* Abstract growth visualization */}
-          <g opacity="0.12">
-            <path d="M50,600 Q200,400 400,500 Q600,300 800,400 Q1000,200 1150,300" 
-                  stroke="hsl(var(--primary))" strokeWidth="2" fill="none"/>
-            <path d="M100,650 Q250,450 450,550 Q650,350 850,450 Q1050,250 1200,350" 
-                  stroke="hsl(var(--accent))" strokeWidth="1.5" fill="none"/>
+          <rect width="100%" height="100%" fill="url(#molecule)"/>
+          <rect width="100%" height="100%" fill="url(#flow)"/>
+          
+          {/* Growth visualization */}
+          <g opacity="0.08">
+            <path d="M100,500 Q300,400 500,350 T900,250 Q1050,200 1200,180" 
+                  stroke="hsl(var(--primary))" strokeWidth="3" fill="none"/>
+            <path d="M0,450 Q200,380 400,320 T800,220 Q950,170 1100,150" 
+                  stroke="hsl(var(--accent))" strokeWidth="2" fill="none"/>
             
-            {/* Achievement nodes */}
-            <circle cx="400" cy="500" r="4" fill="hsl(var(--primary))" opacity="0.4"/>
-            <circle cx="800" cy="400" r="3" fill="hsl(var(--accent))" opacity="0.3"/>
-            <circle cx="1150" cy="300" r="5" fill="hsl(var(--primary-glow))" opacity="0.5"/>
+            {/* Progress indicators */}
+            <circle cx="300" cy="400" r="4" fill="hsl(var(--primary))" opacity="0.6"/>
+            <circle cx="700" cy="280" r="3" fill="hsl(var(--accent))" opacity="0.5"/>
+            <circle cx="1050" cy="200" r="3" fill="hsl(var(--primary))" opacity="0.4"/>
           </g>
         </svg>
       </div>
@@ -84,7 +97,7 @@ export const WhyItMatters = () => {
                 whileHover={{ scale: 1.05 }}
                 className="group"
               >
-                <div className="glass-card rounded-3xl p-8 transition-all duration-500 hover:scale-105">
+                <div className="glass-card rounded-3xl p-8 transition-all duration-500 hover:scale-105 hover:shadow-accent-glow">
                   <div className="w-20 h-20 rounded-3xl bg-primary/20 flex items-center justify-center mx-auto mb-6 group-hover:shadow-glow transition-all duration-300">
                     <benefit.icon className="w-10 h-10 text-primary" />
                   </div>

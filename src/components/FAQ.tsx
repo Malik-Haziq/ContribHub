@@ -30,23 +30,42 @@ export const FAQ = () => {
 
   return (
     <section id="faq" className="py-32 relative overflow-hidden">
-      {/* Question marks and help theme SVG */}
-      <div className="absolute inset-0 svg-pattern">
+      {/* Creative SVG Background */}
+      <div className="absolute inset-0 opacity-6">
         <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 600" fill="none">
           <defs>
-            <pattern id="help-pattern" patternUnits="userSpaceOnUse" width="120" height="120">
-              <path d="M60,30 Q45,15 30,30 Q30,45 45,45 Q60,45 60,60" 
-                    stroke="hsl(var(--primary))" strokeWidth="0.8" fill="none" opacity="0.06"/>
-              <circle cx="60" cy="75" r="1.5" fill="hsl(var(--primary))" opacity="0.08"/>
+            <pattern id="knowledge-tree" patternUnits="userSpaceOnUse" width="80" height="80">
+              <g opacity="0.4">
+                <circle cx="40" cy="60" r="1.5" fill="hsl(var(--primary))"/>
+                <path d="M40,60 L40,40 M40,40 L30,25 M40,40 L50,25 M30,25 L25,15 M30,25 L35,15 M50,25 L45,15 M50,25 L55,15" 
+                      stroke="hsl(var(--primary))" strokeWidth="0.6" fill="none"/>
+                <circle cx="25" cy="15" r="0.8" fill="hsl(var(--accent))"/>
+                <circle cx="35" cy="15" r="0.8" fill="hsl(var(--accent))"/>
+                <circle cx="45" cy="15" r="0.8" fill="hsl(var(--accent))"/>
+                <circle cx="55" cy="15" r="0.8" fill="hsl(var(--accent))"/>
+              </g>
+            </pattern>
+            <pattern id="info-flow" patternUnits="userSpaceOnUse" width="100" height="50">
+              <path d="M0,25 Q25,10 50,25 T100,25" stroke="hsl(var(--accent))" strokeWidth="0.5" fill="none" opacity="0.2"/>
+              <circle cx="20" cy="25" r="1" fill="hsl(var(--primary))" opacity="0.3"/>
+              <circle cx="80" cy="25" r="1" fill="hsl(var(--primary))" opacity="0.3"/>
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#help-pattern)" />
           
-          {/* Abstract conversation bubbles */}
-          <g opacity="0.08">
-            <ellipse cx="200" cy="150" rx="60" ry="40" stroke="hsl(var(--accent))" strokeWidth="1" fill="none"/>
-            <ellipse cx="800" cy="300" rx="80" ry="50" stroke="hsl(var(--primary))" strokeWidth="1" fill="none"/>
-            <ellipse cx="1000" cy="450" rx="70" ry="35" stroke="hsl(var(--primary-glow))" strokeWidth="1" fill="none"/>
+          <rect width="100%" height="100%" fill="url(#knowledge-tree)"/>
+          <rect width="100%" height="100%" fill="url(#info-flow)"/>
+          
+          {/* Information pathways */}
+          <g opacity="0.06">
+            <path d="M100,100 Q300,50 500,100 T900,100 Q1050,80 1200,100" 
+                  stroke="hsl(var(--primary))" strokeWidth="2" fill="none"/>
+            <path d="M0,400 Q200,350 400,400 T800,400 Q950,380 1100,400" 
+                  stroke="hsl(var(--accent))" strokeWidth="1.5" fill="none"/>
+            
+            {/* Knowledge nodes */}
+            <circle cx="300" cy="50" r="3" fill="hsl(var(--primary))" opacity="0.5"/>
+            <circle cx="700" cy="100" r="2.5" fill="hsl(var(--accent))" opacity="0.4"/>
+            <circle cx="500" cy="400" r="3" fill="hsl(var(--primary))" opacity="0.4"/>
           </g>
         </svg>
       </div>
@@ -82,7 +101,7 @@ export const FAQ = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-card rounded-2xl overflow-hidden hover:scale-[1.01] transition-all duration-300 border border-border/30"
+                className="glass-card rounded-2xl overflow-hidden hover:scale-[1.01] hover:shadow-soft transition-all duration-300 border border-border/30"
               >
                 <button
                   className="w-full px-8 py-8 text-left flex items-center justify-between hover:bg-muted/30 transition-all duration-300"

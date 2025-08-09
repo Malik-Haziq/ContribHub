@@ -1,6 +1,6 @@
 import { Search, Brain, Rocket } from "lucide-react";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const steps = [
   {
@@ -21,34 +21,25 @@ const steps = [
 ];
 
 export const HowItWorks = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const lineHeight = useTransform(scrollYProgress, [0.2, 0.8], ["0%", "100%"]);
+
   return (
-    <section id="how-it-works" className="py-32 relative overflow-hidden">
-      {/* SVG Background Pattern */}
-      <div className="absolute inset-0 svg-pattern">
-        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 600" fill="none">
-          <defs>
-            <pattern id="workflow-grid" patternUnits="userSpaceOnUse" width="100" height="100">
-              <path d="M0,50 L100,50 M50,0 L50,100" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.1"/>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#workflow-grid)" />
-          
-          {/* Process flow visualization */}
-          <g opacity="0.15">
-            <circle cx="200" cy="200" r="40" stroke="hsl(var(--primary))" strokeWidth="1" fill="none"/>
-            <circle cx="600" cy="200" r="40" stroke="hsl(var(--accent))" strokeWidth="1" fill="none"/>
-            <circle cx="1000" cy="200" r="40" stroke="hsl(var(--primary-glow))" strokeWidth="1" fill="none"/>
-            
-            <path d="M240,200 Q420,150 560,200" stroke="hsl(var(--primary))" strokeWidth="1" fill="none" markerEnd="url(#arrowhead)"/>
-            <path d="M640,200 Q820,150 960,200" stroke="hsl(var(--accent))" strokeWidth="1" fill="none" markerEnd="url(#arrowhead)"/>
-          </g>
-          
-          <defs>
-            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-              <polygon points="0 0, 10 3.5, 0 7" fill="hsl(var(--primary))" opacity="0.3"/>
-            </marker>
-          </defs>
-        </svg>
+    <section ref={sectionRef} id="how-it-works" className="py-32 relative overflow-hidden">
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5"></div>
+      
+      {/* Center Progress Line */}
+      <div className="absolute left-1/2 top-32 bottom-32 w-px bg-border/30 transform -translate-x-1/2 hidden lg:block">
+        <motion.div 
+          className="absolute top-0 left-0 w-full bg-gradient-to-b from-primary via-accent to-primary"
+          style={{ height: lineHeight }}
+        />
       </div>
       
       <div className="container mx-auto px-6">
@@ -100,18 +91,13 @@ export const HowItWorks = () => {
                   whileHover={{ scale: 1.05, rotate: 2 }}
                   className="relative"
                 >
-                  <div className="w-64 h-64 rounded-3xl glass-card flex items-center justify-center transition-all duration-500 hover:scale-105">
+                  <div className="w-64 h-64 rounded-3xl glass-card flex items-center justify-center transition-all duration-500 hover:scale-105 hover:shadow-glow">
                     <step.icon className="w-16 h-16 text-primary" />
                     
                     {/* Decorative elements */}
-                    <div className="absolute -top-4 -right-4 w-8 h-8 bg-accent rounded-full opacity-60" />
-                    <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-primary rounded-full opacity-40" />
+                    <div className="absolute -top-4 -right-4 w-8 h-8 bg-accent/60 rounded-full" />
+                    <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-primary/60 rounded-full" />
                   </div>
-                  
-                  {/* Connector line for larger screens */}
-                  {index < steps.length - 1 && (
-                    <div className="hidden xl:block absolute top-1/2 -right-20 w-16 h-0.5 bg-gradient-to-r from-primary/40 to-transparent" />
-                  )}
                 </motion.div>
               </div>
             </motion.div>

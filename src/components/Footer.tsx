@@ -7,8 +7,8 @@ export const Footer = () => {
       <div className="container mx-auto px-6">
         {/* CTA Section */}
         <div className="text-center mb-16">
-          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-medium max-w-2xl mx-auto">
-            <h3 className="text-3xl font-bold mb-4">
+          <div className="glass-card rounded-3xl p-8 md:p-12 shadow-medium max-w-2xl mx-auto hover:shadow-glow transition-all duration-500">
+            <h3 className="text-3xl font-bold mb-4 text-foreground">
               Ready to Start Contributing?
             </h3>
             <p className="text-muted-foreground mb-6">

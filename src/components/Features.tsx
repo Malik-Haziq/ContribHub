@@ -27,24 +27,33 @@ const features = [
 export const Features = () => {
   return (
     <section id="features" className="py-32 relative overflow-hidden">
-      {/* SVG Feature Background */}
-      <div className="absolute inset-0 svg-pattern">
+      {/* Creative SVG Background */}
+      <div className="absolute inset-0 opacity-8">
         <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" fill="none">
-          {/* Tech-inspired background */}
           <defs>
-            <pattern id="circuit" patternUnits="userSpaceOnUse" width="80" height="80">
-              <path d="M20,20 L60,20 L60,60 L20,60 Z" stroke="hsl(var(--primary))" strokeWidth="0.5" fill="none" opacity="0.1"/>
-              <circle cx="20" cy="20" r="2" fill="hsl(var(--accent))" opacity="0.15"/>
+            <pattern id="neural-network" patternUnits="userSpaceOnUse" width="100" height="100">
+              <circle cx="20" cy="20" r="1.5" fill="hsl(var(--primary))" opacity="0.4"/>
+              <circle cx="80" cy="80" r="1" fill="hsl(var(--accent))" opacity="0.3"/>
+              <circle cx="50" cy="70" r="0.8" fill="hsl(var(--primary))" opacity="0.2"/>
+              <path d="M20,20 L80,80 M20,20 L50,70 M50,70 L80,80" stroke="hsl(var(--primary))" strokeWidth="0.3" opacity="0.2"/>
+            </pattern>
+            <pattern id="hexagon" patternUnits="userSpaceOnUse" width="60" height="52">
+              <path d="M30,4 L45,15 L45,37 L30,48 L15,37 L15,15 Z" stroke="hsl(var(--accent))" strokeWidth="0.4" fill="none" opacity="0.15"/>
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#circuit)" />
           
-          {/* Abstract feature connections */}
+          <rect width="100%" height="100%" fill="url(#neural-network)"/>
+          <rect width="100%" height="100%" fill="url(#hexagon)" opacity="0.5"/>
+          
+          {/* Abstract data visualization */}
           <g opacity="0.1">
-            <path d="M100,100 Q300,200 500,100 T900,100" stroke="hsl(var(--primary))" strokeWidth="2" fill="none"/>
-            <path d="M150,600 Q350,500 550,600 T950,600" stroke="hsl(var(--accent))" strokeWidth="1.5" fill="none"/>
-            <circle cx="300" cy="300" r="60" stroke="hsl(var(--primary-glow))" strokeWidth="1" fill="none"/>
-            <circle cx="900" cy="400" r="80" stroke="hsl(var(--accent))" strokeWidth="0.8" fill="none"/>
+            <path d="M0,400 Q200,300 400,400 T800,400 Q1000,350 1200,400" stroke="hsl(var(--primary))" strokeWidth="2" fill="none"/>
+            <path d="M0,450 Q150,350 300,450 T600,450 Q750,400 900,450" stroke="hsl(var(--accent))" strokeWidth="1.5" fill="none"/>
+            
+            {/* Data points */}
+            <circle cx="200" cy="350" r="3" fill="hsl(var(--primary))" opacity="0.6"/>
+            <circle cx="600" cy="380" r="2.5" fill="hsl(var(--accent))" opacity="0.5"/>
+            <circle cx="1000" cy="360" r="2" fill="hsl(var(--primary))" opacity="0.4"/>
           </g>
         </svg>
       </div>
@@ -76,7 +85,7 @@ export const Features = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="glass-card rounded-3xl p-8 md:p-12 group transition-all duration-500 hover:scale-[1.02]"
+              className="glass-card rounded-3xl p-8 md:p-12 group transition-all duration-500 hover:scale-[1.02] hover:shadow-glow"
             >
               <div className="flex flex-col md:flex-row items-center gap-8">
                 <div className="w-20 h-20 rounded-3xl bg-primary/20 flex items-center justify-center group-hover:shadow-glow transition-all duration-300 shrink-0">
@@ -102,7 +111,7 @@ export const Features = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: index * 0.2 }}
-                  className="glass-card rounded-3xl p-8 group transition-all duration-500 hover:scale-[1.02]"
+                  className="glass-card rounded-3xl p-8 group transition-all duration-500 hover:scale-[1.02] hover:shadow-accent-glow"
                 >
                   <div className="w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center mb-6 group-hover:shadow-accent-glow transition-all duration-300">
                     <feature.icon className="w-8 h-8 text-accent" />
@@ -123,7 +132,7 @@ export const Features = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="glass-card rounded-3xl p-8 md:p-12 group transition-all duration-500 hover:scale-[1.02] md:ml-16"
+              className="glass-card rounded-3xl p-8 md:p-12 group transition-all duration-500 hover:scale-[1.02] hover:shadow-glow md:ml-16"
             >
               <div className="flex flex-col md:flex-row-reverse items-center gap-8">
                 <div className="w-20 h-20 rounded-3xl bg-primary/20 flex items-center justify-center group-hover:shadow-glow transition-all duration-300 shrink-0">
