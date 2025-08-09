@@ -26,10 +26,31 @@ const benefits = [
 export const WhyItMatters = () => {
   return (
     <section id="why-it-matters" className="py-32 relative overflow-hidden">
-      {/* Enhanced background elements */}
-      <div className="absolute top-20 left-20 w-40 h-40 bg-primary/15 rounded-full blur-3xl float" />
-      <div className="absolute bottom-20 right-20 w-32 h-32 bg-accent/20 rounded-full blur-2xl float-delayed" />
-      <div className="absolute top-60 right-40 w-20 h-20 bg-primary-glow/25 rounded-full blur-xl float-slow" />
+      {/* Growth-themed SVG Background */}
+      <div className="absolute inset-0 svg-pattern">
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" fill="none">
+          {/* Growth and progress theme */}
+          <defs>
+            <pattern id="growth-dots" patternUnits="userSpaceOnUse" width="60" height="60">
+              <circle cx="30" cy="30" r="1" fill="hsl(var(--primary))" opacity="0.08"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#growth-dots)" />
+          
+          {/* Abstract growth visualization */}
+          <g opacity="0.12">
+            <path d="M50,600 Q200,400 400,500 Q600,300 800,400 Q1000,200 1150,300" 
+                  stroke="hsl(var(--primary))" strokeWidth="2" fill="none"/>
+            <path d="M100,650 Q250,450 450,550 Q650,350 850,450 Q1050,250 1200,350" 
+                  stroke="hsl(var(--accent))" strokeWidth="1.5" fill="none"/>
+            
+            {/* Achievement nodes */}
+            <circle cx="400" cy="500" r="4" fill="hsl(var(--primary))" opacity="0.4"/>
+            <circle cx="800" cy="400" r="3" fill="hsl(var(--accent))" opacity="0.3"/>
+            <circle cx="1150" cy="300" r="5" fill="hsl(var(--primary-glow))" opacity="0.5"/>
+          </g>
+        </svg>
+      </div>
       
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto text-center">

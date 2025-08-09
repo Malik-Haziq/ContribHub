@@ -23,9 +23,33 @@ const steps = [
 export const HowItWorks = () => {
   return (
     <section id="how-it-works" className="py-32 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-accent/10 rounded-full blur-2xl" />
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
+      {/* SVG Background Pattern */}
+      <div className="absolute inset-0 svg-pattern">
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 600" fill="none">
+          <defs>
+            <pattern id="workflow-grid" patternUnits="userSpaceOnUse" width="100" height="100">
+              <path d="M0,50 L100,50 M50,0 L50,100" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.1"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#workflow-grid)" />
+          
+          {/* Process flow visualization */}
+          <g opacity="0.15">
+            <circle cx="200" cy="200" r="40" stroke="hsl(var(--primary))" strokeWidth="1" fill="none"/>
+            <circle cx="600" cy="200" r="40" stroke="hsl(var(--accent))" strokeWidth="1" fill="none"/>
+            <circle cx="1000" cy="200" r="40" stroke="hsl(var(--primary-glow))" strokeWidth="1" fill="none"/>
+            
+            <path d="M240,200 Q420,150 560,200" stroke="hsl(var(--primary))" strokeWidth="1" fill="none" markerEnd="url(#arrowhead)"/>
+            <path d="M640,200 Q820,150 960,200" stroke="hsl(var(--accent))" strokeWidth="1" fill="none" markerEnd="url(#arrowhead)"/>
+          </g>
+          
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="hsl(var(--primary))" opacity="0.3"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>
       
       <div className="container mx-auto px-6">
         <motion.div 

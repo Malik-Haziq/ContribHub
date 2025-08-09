@@ -26,10 +26,28 @@ const features = [
 
 export const Features = () => {
   return (
-    <section id="features" className="py-32 relative">
-      {/* Background decorations */}
-      <div className="absolute top-32 right-20 w-24 h-24 bg-primary/20 rounded-full blur-2xl float" />
-      <div className="absolute bottom-20 left-10 w-32 h-32 bg-accent/15 rounded-full blur-3xl float-delayed" />
+    <section id="features" className="py-32 relative overflow-hidden">
+      {/* SVG Feature Background */}
+      <div className="absolute inset-0 svg-pattern">
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" fill="none">
+          {/* Tech-inspired background */}
+          <defs>
+            <pattern id="circuit" patternUnits="userSpaceOnUse" width="80" height="80">
+              <path d="M20,20 L60,20 L60,60 L20,60 Z" stroke="hsl(var(--primary))" strokeWidth="0.5" fill="none" opacity="0.1"/>
+              <circle cx="20" cy="20" r="2" fill="hsl(var(--accent))" opacity="0.15"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#circuit)" />
+          
+          {/* Abstract feature connections */}
+          <g opacity="0.1">
+            <path d="M100,100 Q300,200 500,100 T900,100" stroke="hsl(var(--primary))" strokeWidth="2" fill="none"/>
+            <path d="M150,600 Q350,500 550,600 T950,600" stroke="hsl(var(--accent))" strokeWidth="1.5" fill="none"/>
+            <circle cx="300" cy="300" r="60" stroke="hsl(var(--primary-glow))" strokeWidth="1" fill="none"/>
+            <circle cx="900" cy="400" r="80" stroke="hsl(var(--accent))" strokeWidth="0.8" fill="none"/>
+          </g>
+        </svg>
+      </div>
       
       <div className="container mx-auto px-6">
         <motion.div 

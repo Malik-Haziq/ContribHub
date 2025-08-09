@@ -5,14 +5,42 @@ import { motion } from "framer-motion";
 export const Hero = () => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Background gradient */}
-      <div className="absolute inset-0 hero-gradient" />
-      
-      {/* Enhanced floating elements */}
-      <div className="absolute top-32 left-10 w-24 h-24 bg-primary/20 rounded-full blur-2xl float" />
-      <div className="absolute top-40 right-20 w-40 h-40 bg-accent/15 rounded-full blur-3xl float-delayed" />
-      <div className="absolute bottom-32 left-20 w-32 h-32 bg-primary-glow/20 rounded-full blur-2xl float-slow" />
-      <div className="absolute top-60 right-10 w-20 h-20 bg-accent/25 rounded-full blur-xl float" />
+      {/* Creative SVG Background */}
+      <div className="absolute inset-0 svg-pattern">
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" fill="none">
+          {/* Abstract geometric patterns */}
+          <defs>
+            <pattern id="dots" patternUnits="userSpaceOnUse" width="50" height="50">
+              <circle cx="25" cy="25" r="1" fill="hsl(var(--primary))" opacity="0.1"/>
+            </pattern>
+            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.2"/>
+              <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.1"/>
+            </linearGradient>
+          </defs>
+          
+          {/* Grid pattern */}
+          <rect width="100%" height="100%" fill="url(#dots)" />
+          
+          {/* Floating geometric shapes */}
+          <circle cx="100" cy="150" r="80" stroke="url(#lineGradient)" strokeWidth="1" fill="none" opacity="0.3"/>
+          <circle cx="1000" cy="200" r="120" stroke="hsl(var(--accent))" strokeWidth="0.5" fill="none" opacity="0.2"/>
+          <path d="M200,300 Q400,200 600,300 T1000,300" stroke="hsl(var(--primary))" strokeWidth="1" fill="none" opacity="0.15"/>
+          <path d="M0,500 Q300,400 600,500 T1200,500" stroke="hsl(var(--accent))" strokeWidth="0.5" fill="none" opacity="0.1"/>
+          
+          {/* Abstract nodes */}
+          <g opacity="0.2">
+            <circle cx="300" cy="100" r="2" fill="hsl(var(--primary))"/>
+            <circle cx="800" cy="150" r="1.5" fill="hsl(var(--accent))"/>
+            <circle cx="500" cy="600" r="2.5" fill="hsl(var(--primary-glow))"/>
+            <circle cx="900" cy="650" r="1" fill="hsl(var(--accent))"/>
+            
+            {/* Connecting lines */}
+            <line x1="300" y1="100" x2="800" y2="150" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.3"/>
+            <line x1="500" y1="600" x2="900" y2="650" stroke="hsl(var(--accent))" strokeWidth="0.5" opacity="0.2"/>
+          </g>
+        </svg>
+      </div>
       
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-5xl mx-auto">

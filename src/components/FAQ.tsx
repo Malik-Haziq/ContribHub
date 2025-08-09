@@ -29,9 +29,27 @@ export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-32 relative">
-      <div className="absolute top-20 left-10 w-28 h-28 bg-accent/15 rounded-full blur-2xl float" />
-      <div className="absolute bottom-20 right-10 w-36 h-36 bg-primary/10 rounded-full blur-3xl float-delayed" />
+    <section id="faq" className="py-32 relative overflow-hidden">
+      {/* Question marks and help theme SVG */}
+      <div className="absolute inset-0 svg-pattern">
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 600" fill="none">
+          <defs>
+            <pattern id="help-pattern" patternUnits="userSpaceOnUse" width="120" height="120">
+              <path d="M60,30 Q45,15 30,30 Q30,45 45,45 Q60,45 60,60" 
+                    stroke="hsl(var(--primary))" strokeWidth="0.8" fill="none" opacity="0.06"/>
+              <circle cx="60" cy="75" r="1.5" fill="hsl(var(--primary))" opacity="0.08"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#help-pattern)" />
+          
+          {/* Abstract conversation bubbles */}
+          <g opacity="0.08">
+            <ellipse cx="200" cy="150" rx="60" ry="40" stroke="hsl(var(--accent))" strokeWidth="1" fill="none"/>
+            <ellipse cx="800" cy="300" rx="80" ry="50" stroke="hsl(var(--primary))" strokeWidth="1" fill="none"/>
+            <ellipse cx="1000" cy="450" rx="70" ry="35" stroke="hsl(var(--primary-glow))" strokeWidth="1" fill="none"/>
+          </g>
+        </svg>
+      </div>
       
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
